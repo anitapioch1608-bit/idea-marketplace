@@ -82,7 +82,9 @@ const TRANSLATIONS = {
     terms: "Terms of Service",
     privacy: "Privacy Policy",
     disclaimer: "Legal Disclaimer",
-    disclaimerText: "Disclaimer: Ideaconomy provides a platform for connecting buyers and sellers. We do not guarantee the financial success, accuracy, or legal viability of any purchased blueprints. All acquisitions are subject to the buyer's own due diligence."
+    disclaimerText: "Disclaimer: Ideaconomy provides a platform for connecting buyers and sellers. We do not guarantee the financial success, accuracy, or legal viability of any purchased blueprints. All acquisitions are subject to the buyer's own due diligence.",
+    footerDesc: "The global hub for high-value strategic expansion and business blueprints.",
+    pasteLegalHere: "[Paste your legal text here. You can format it with standard paragraphs and bullet points.]"
   },
   DE: {
     logo: "Ideaconomy",
@@ -154,37 +156,128 @@ const TRANSLATIONS = {
     terms: "Nutzungsbedingungen",
     privacy: "Datenschutzerklärung",
     disclaimer: "Haftungsausschluss",
-    disclaimerText: "Haftungsausschluss: Ideaconomy garantiert nicht den finanziellen Erfolg der gekauften Pläne. Käufe unterliegen der eigenen Sorgfaltspflicht."
+    disclaimerText: "Haftungsausschluss: Ideaconomy garantiert nicht den finanziellen Erfolg der gekauften Pläne. Käufe unterliegen der eigenen Sorgfaltspflicht.",
+    footerDesc: "Der globale Knotenpunkt für hochwertige strategische Expansion und Business-Baupläne.",
+    pasteLegalHere: "[Fügen Sie hier Ihren Rechtstext ein. Sie können ihn mit Standardabsätzen formatieren.]"
   }
 };
 
 const INITIAL_CATEGORIES = [
   "All", "AI Businesses", "SaaS", "Franchise Expansion", "E-commerce", 
-  "Corporate Strategy", "Food & Beverage", "Mobile Apps", "Real Estate"
+  "Corporate Strategy", "Food & Beverage", "Mobile Apps", "Real Estate", 
+  "Healthcare & Biotech", "IT & Software", "Pet & Animal Services", "Hospitality"
 ];
 
 const MOCK_IDEAS = [
   {
     id: 1,
-    title: "AI-Powered Diagnostics App",
+    title: "AI-Powered Dermatological Diagnostics App",
     category: "AI Businesses",
     price: "$15,000",
     royaltyOption: "or $5k + 10% Royalty",
-    shortDesc: "A mobile application utilizing machine learning to pre-screen common dermatological issues.",
+    shortDesc: "A mobile application utilizing machine learning to pre-screen common dermatological issues before booking a doctor.",
     listingDate: "2 days ago",
-    validation: ["Working Prototype", "Domain Secured"],
-    assets: ["Full Business Plan", "Financial Projections", "MVP Wireframes"]
+    validation: ["Working Prototype", "Domain Secured", "Algorithm Trained"],
+    assets: ["Full Business Plan", "Financial Projections", "MVP Wireframes", "ML Source Code"]
   },
   {
     id: 2,
+    title: "Italian Pet & Reptile Cafe Concept",
+    category: "Hospitality",
+    price: "$12,000",
+    royaltyOption: "or $3k + 5% Royalty",
+    shortDesc: "A unique restaurant blueprint for the Italian market combining premium coffee with an interactive, safe reptile and cat sanctuary experience.",
+    listingDate: "12 hours ago",
+    validation: ["Location Sourcing Strategy", "Italian Zoning Laws Cleared"],
+    assets: ["Architectural Layouts", "Supplier List for Animals", "Operations Manual"]
+  },
+  {
+    id: 3,
+    title: "Zero-Trust Cybersecurity Framework for SMBs",
+    category: "IT & Software",
+    price: "$25,000",
+    royaltyOption: "or $10k + 8% Royalty",
+    shortDesc: "A turnkey IT service package designed to migrate small-to-medium businesses to military-grade zero-trust architectures in under 48 hours.",
+    listingDate: "Just now",
+    validation: ["Tested on 3 Beta Clients", "100% Audit Pass Rate"],
+    assets: ["Deployment Scripts", "Client Pitch Deck", "Vendor White-label Agreements"]
+  },
+  {
+    id: 4,
+    title: "Telehealth Pediatric Triage System",
+    category: "Healthcare & Biotech",
+    price: "$45,000",
+    royaltyOption: "Upfront buyout only",
+    shortDesc: "A fully compliant B2B platform connecting exhausted parents with on-demand pediatric nurses for after-hours symptom checking.",
+    listingDate: "1 week ago",
+    validation: ["HIPAA/GDPR Compliant Architecture", "150 Parents Surveyed"],
+    assets: ["Regulatory Compliance Roadmap", "Wireframes", "Go-To-Market Strategy"]
+  },
+  {
+    id: 5,
+    title: "CRISPR-based Agricultural Yield Optimizer",
+    category: "Biotech",
+    price: "$120,000",
+    royaltyOption: "or $50k + 15% Royalty",
+    shortDesc: "Research and theoretical application models for increasing drought resistance in Mediterranean olive trees using advanced gene editing.",
+    listingDate: "3 days ago",
+    validation: ["Peer-Reviewed Feasibility", "Patent Pending Status"],
+    assets: ["Laboratory Protocols", "Patent Filing Documents", "Agri-Corp Buyer List"]
+  },
+  {
+    id: 6,
     title: "National Food Truck Franchise Strategy",
     category: "Food & Beverage",
-    price: "$25,000",
+    price: "$35,000",
     royaltyOption: "or $8k + 5% Royalty",
-    shortDesc: "Complete expansion blueprint for supermarket parking lots. Engineered for corporate retail giants like Lidl or Aldi.",
-    listingDate: "Just now",
+    shortDesc: "Complete expansion blueprint for supermarket parking lots. Engineered for corporate retail giants looking to capture fast-food revenue.",
+    listingDate: "5 days ago",
     validation: ["Location Analysis", "Supplier List"],
     assets: ["Franchise Agreement", "Operations Manual", "Equipment Specs"]
+  },
+  {
+    id: 7,
+    title: "Hyper-Local Sustainable Grocery Delivery",
+    category: "E-commerce",
+    price: "$8,500",
+    royaltyOption: "or $2k + 12% Royalty",
+    shortDesc: "E-commerce logistics model that connects local organic farms directly to neighborhood hubs via electric cargo bikes.",
+    listingDate: "4 hours ago",
+    validation: ["Logistics Route Optimized", "Farmer Network Built"],
+    assets: ["Web App Source Code", "Fleet Management Plan", "Marketing Assets"]
+  },
+  {
+    id: 8,
+    title: "B2B Subscription Management API",
+    category: "SaaS",
+    price: "$60,000",
+    royaltyOption: "Upfront buyout only",
+    shortDesc: "A micro-SaaS blueprint that simplifies complex, multi-tiered enterprise billing. Perfect to build and flip to Stripe or Paddle.",
+    listingDate: "1 month ago",
+    validation: ["API Architecture Complete", "Competitor Gap Analysis"],
+    assets: ["System Architecture", "Database Schema", "UI/UX Figma Files"]
+  },
+  {
+    id: 9,
+    title: "Remote-First Workforce Transition Plan",
+    category: "Corporate Strategy",
+    price: "$5,000",
+    royaltyOption: "No royalty option",
+    shortDesc: "A comprehensive consulting manual allowing HR agencies to charge premium fees to transition old-school companies to asynchronous remote work.",
+    listingDate: "6 hours ago",
+    validation: ["Used successfully by 2 Fortune 500s"],
+    assets: ["Slide Decks", "Change Management Workbooks", "Legal Addendums"]
+  },
+  {
+    id: 10,
+    title: "Modular Urban Vertical Farming",
+    category: "Pet & Animal Services",
+    price: "$18,000",
+    royaltyOption: "or $5k + 8% Royalty",
+    shortDesc: "A scalable hardware and logistics blueprint for cultivating organic, high-protein insect feed for the premium pet food market.",
+    listingDate: "2 weeks ago",
+    validation: ["Hardware Prototypes", "Nutritional Lab Tests"],
+    assets: ["CAD Models", "Supplier Contracts", "Financial ROI Calculator"]
   }
 ];
 
@@ -327,7 +420,7 @@ export default function App() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredIdeas.map(idea => (
-                  <div key={idea.id} className="bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-2xl transition-all group flex flex-col cursor-pointer transform hover:-translate-y-1" onClick={() => {setSelectedIdea(idea); setCurrentView("details"); window.scrollTo(0,0);}}>
+                  <div key={idea.id} className="bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-2xl transition-all group flex flex-col cursor-pointer transform hover:-translate-y-1" onClick={() => {setSelectedIdea(idea); setNdaSigned(false); setCurrentView("details"); window.scrollTo(0,0);}}>
                     <div className="h-2 bg-blue-600 group-hover:bg-cyan-500 transition-colors"></div>
                     <div className="p-8 flex-grow">
                       <div className="flex justify-between items-start mb-6">
@@ -349,6 +442,7 @@ export default function App() {
           </>
         )}
 
+        {/* Pricing, Checkout, About... */}
         {currentView === "pricing" && (
           <div className="max-w-5xl mx-auto py-16 px-4">
             <div className="text-center mb-16">
@@ -433,6 +527,7 @@ export default function App() {
           </div>
         )}
 
+        {/* Blueprint Details View */}
         {currentView === "details" && selectedIdea && (
           <div className="max-w-6xl mx-auto px-4 py-8">
             <button onClick={() => {setCurrentView('home'); window.scrollTo(0,0);}} className="font-bold text-slate-400 hover:text-blue-600 mb-8 flex items-center gap-2 transition-colors">&larr; {t('backToMarket')}</button>
@@ -499,6 +594,7 @@ export default function App() {
           </div>
         )}
 
+        {/* Dashboard and Create Views */}
         {currentView === "create" && (
           <div className="max-w-3xl mx-auto py-16 px-4">
              <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-xl relative">
@@ -572,6 +668,36 @@ export default function App() {
           </div>
         )}
 
+        {/* Legal Pages */}
+        {currentView === "terms" && (
+          <div className="max-w-4xl mx-auto py-16 px-4 min-h-[50vh]">
+            <h1 className="text-5xl font-black mb-8 text-slate-900">{t('terms')}</h1>
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-slate-600 font-medium">
+              <p>{t('pasteLegalHere')}</p>
+            </div>
+          </div>
+        )}
+
+        {currentView === "privacy" && (
+          <div className="max-w-4xl mx-auto py-16 px-4 min-h-[50vh]">
+            <h1 className="text-5xl font-black mb-8 text-slate-900">{t('privacy')}</h1>
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-slate-600 font-medium">
+              <p>{t('pasteLegalHere')}</p>
+            </div>
+          </div>
+        )}
+
+        {currentView === "disclaimer" && (
+          <div className="max-w-4xl mx-auto py-16 px-4 min-h-[50vh]">
+            <h1 className="text-5xl font-black mb-8 text-slate-900">{t('disclaimer')}</h1>
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-slate-600 font-medium">
+              <p>{t('disclaimerText')}</p>
+              <br/>
+              <p>{t('pasteLegalHere')}</p>
+            </div>
+          </div>
+        )}
+
       </main>
 
       {/* Footer */}
@@ -583,14 +709,14 @@ export default function App() {
                 <div className="bg-blue-600 p-2 rounded-lg shadow-sm"><Lightbulb className="h-6 w-6 text-white" /></div>
                 <span className="font-black text-2xl tracking-tight">{t('logo')}</span>
               </div>
-              <p className="text-slate-500 font-medium text-lg leading-relaxed max-w-md">The global hub for high-value strategic expansion and business blueprints.</p>
+              <p className="text-slate-500 font-medium text-lg leading-relaxed max-w-md">{t('footerDesc')}</p>
             </div>
             <div>
               <h4 className="font-black uppercase text-xs text-slate-400 tracking-widest mb-8">{t('legalLinks')}</h4>
               <ul className="space-y-4 font-bold text-slate-600">
-                <li className="hover:text-blue-600 cursor-pointer transition-colors">{t('terms')}</li>
-                <li className="hover:text-blue-600 cursor-pointer transition-colors">{t('privacy')}</li>
-                <li className="hover:text-blue-600 cursor-pointer transition-colors">{t('disclaimer')}</li>
+                <li className="hover:text-blue-600 cursor-pointer transition-colors" onClick={() => {setCurrentView('terms'); window.scrollTo(0,0);}}>{t('terms')}</li>
+                <li className="hover:text-blue-600 cursor-pointer transition-colors" onClick={() => {setCurrentView('privacy'); window.scrollTo(0,0);}}>{t('privacy')}</li>
+                <li className="hover:text-blue-600 cursor-pointer transition-colors" onClick={() => {setCurrentView('disclaimer'); window.scrollTo(0,0);}}>{t('disclaimer')}</li>
               </ul>
             </div>
           </div>
