@@ -8,7 +8,8 @@ import {
   ChevronLeft, FileLock, CheckCircle2,
   MessageSquare, Send, Globe, Users, 
   Code, PieChart, Download, Plus, 
-  LayoutDashboard, LogOut, Euro, Crown, Sparkles, CreditCard, ShieldCheck, Info
+  LayoutDashboard, LogOut, Euro, Crown, Sparkles, CreditCard, ShieldCheck, Info,
+  Zap, Briefcase, Wrench
 } from 'lucide-react';
 
 const TRANSLATIONS = {
@@ -29,11 +30,18 @@ const TRANSLATIONS = {
     catSearch: "Find a niche...",
     askingPrice: "Asking Price",
     details: "View Details",
+    devStage: "Development Stage",
     protectionNotice: "Execution blueprints & financials protected by NDA.",
     noIdeas: "No blueprints found",
-    clearFilters: "Clear all filters",
+    whySellTitle: "Why Sell Your Idea?",
+    whySellSub: "Not every inventor wants to be a CEO. Here is why creators use Ideaconomy to sell their concepts.",
+    reason1Title: "Lack of Resources",
+    reason1Desc: "You have a highly profitable concept, but lack the time or capital required to build it yourself.",
+    reason2Title: "Skip the Startup Grind",
+    reason2Desc: "You love inventing, researching, and strategizing, but have no desire to manage a company or employees.",
+    reason3Title: "Technical Barriers",
+    reason3Desc: "You see a clear market gap, but don't have the IT, coding, or manufacturing knowledge to execute it.",
     howTitle: "How It Works",
-    howSub: "We bridge the gap between brilliant thinkers and capable executors, providing a secure marketplace for actionable business intelligence.",
     backToMarket: "Back to Marketplace",
     publicOverview: "Blueprint Overview",
     proofValidation: "Proof of Concept / Validation",
@@ -51,21 +59,23 @@ const TRANSLATIONS = {
     publish: "Publish to Marketplace",
     yourDashboard: "Your Dashboard",
     activeIdeas: "Your Active Listings",
-    submitProposal: "Submit Proposal",
-    upfrontBuyout: "Upfront Buyout",
-    royaltyShare: "Royalty Share",
-    messageSeller: "Message to Seller",
-    sendOffer: "Send Offer to Seller",
     pricingTitle: "Choose Your Seller Plan",
     pricingSub: "Join thousands of creators selling blueprints globally. Cancel anytime.",
     basicPlan: "Basic Seller",
     premiumPlan: "Premium Pro",
+    agencyPlan: "Brokerage Agency",
+    agencySub: "We sell it for you.",
     perMonth: "/month",
+    commission: "15% Commission",
     unlimitedPosts: "Unlimited Blueprint Listings",
     standardSupport: "Standard Support",
     aiBusinessPlan: "AI Business Plan Generator",
     priorityPlacement: "Priority Placement",
-    subscribeBtn: "Subscribe & Start Selling",
+    pitchDeckCreation: "Custom Pitch Deck Creation",
+    buyerOutreach: "Active Corporate Outreach",
+    negotiationSupport: "Contract & Negotiation Support",
+    subscribeBtn: "Start Selling",
+    contactAgencyBtn: "Apply for Brokerage",
     aiGenerateBtn: "Auto-Generate with AI",
     premiumBadge: "PRO SELLER",
     checkoutTitle: "Complete your subscription",
@@ -103,11 +113,18 @@ const TRANSLATIONS = {
     catSearch: "Nische finden...",
     askingPrice: "Kaufpreis",
     details: "Details ansehen",
+    devStage: "Entwicklungsstand",
     protectionNotice: "Baupläne & Finanzen sind durch ein NDA geschützt.",
     noIdeas: "Keine Blueprints gefunden",
-    clearFilters: "Filter löschen",
+    whySellTitle: "Warum die eigene Idee verkaufen?",
+    whySellSub: "Nicht jeder Erfinder will CEO sein. Darum nutzen kluge Köpfe Ideaconomy:",
+    reason1Title: "Fehlende Ressourcen",
+    reason1Desc: "Du hast ein hochprofitables Konzept, aber weder die Zeit noch das Kapital, um es selbst aufzubauen.",
+    reason2Title: "Keine Lust auf Gründung",
+    reason2Desc: "Du liebst es zu erfinden und zu forschen, hast aber keine Lust, ein Unternehmen oder Mitarbeiter zu führen.",
+    reason3Title: "Technische Hürden",
+    reason3Desc: "Du siehst eine Marktlücke, aber dir fehlt das technische Know-how für IT, Programmierung oder Herstellung.",
     howTitle: "Wie es funktioniert",
-    howSub: "Wir schließen die Lücke zwischen brillanten Denkern und fähigen Machern und bieten einen sicheren Marktplatz für Geschäftswissen.",
     backToMarket: "Zurück zum Marktplatz",
     publicOverview: "Blueprint Übersicht",
     proofValidation: "Validierung / Konzeptnachweis",
@@ -125,21 +142,23 @@ const TRANSLATIONS = {
     publish: "Auf Marktplatz veröffentlichen",
     yourDashboard: "Dein Dashboard",
     activeIdeas: "Deine aktiven Einträge",
-    submitProposal: "Angebot einreichen",
-    upfrontBuyout: "Sofortkauf",
-    royaltyShare: "Umsatzbeteiligung",
-    messageSeller: "Nachricht an den Verkäufer",
-    sendOffer: "Angebot an Verkäufer senden",
     pricingTitle: "Wähle deinen Verkäufer-Plan",
     pricingSub: "Schließe dich Tausenden von Ideengebern an. Jederzeit kündbar.",
     basicPlan: "Basis Verkäufer",
     premiumPlan: "Premium Pro",
+    agencyPlan: "Vermarktungs-Agentur",
+    agencySub: "Wir verkaufen für dich.",
     perMonth: "/Monat",
+    commission: "15% Provision",
     unlimitedPosts: "Unbegrenzte Blueprint-Einträge",
     standardSupport: "Standard Support",
     aiBusinessPlan: "KI Businessplan-Generator",
     priorityPlacement: "Priorisierte Platzierung",
-    subscribeBtn: "Abonnieren & Verkaufen",
+    pitchDeckCreation: "Erstellung von Präsentationen",
+    buyerOutreach: "Aktive Ansprache von Unternehmen",
+    negotiationSupport: "Verhandlungsunterstützung",
+    subscribeBtn: "Jetzt verkaufen",
+    contactAgencyBtn: "Agentur anfragen",
     aiGenerateBtn: "Mit KI generieren",
     premiumBadge: "PRO VERKÄUFER",
     checkoutTitle: "Abonnement abschließen",
@@ -173,6 +192,7 @@ const MOCK_IDEAS = [
     id: 1,
     title: "AI-Powered Dermatological Diagnostics App",
     category: "AI Businesses",
+    stage: "Working Prototype",
     price: "$15,000",
     royaltyOption: "or $5k + 10% Royalty",
     shortDesc: "A mobile application utilizing machine learning to pre-screen common dermatological issues before booking a doctor.",
@@ -184,6 +204,7 @@ const MOCK_IDEAS = [
     id: 2,
     title: "Italian Pet & Reptile Cafe Concept",
     category: "Hospitality",
+    stage: "Validated Concept",
     price: "$12,000",
     royaltyOption: "or $3k + 5% Royalty",
     shortDesc: "A unique restaurant blueprint for the Italian market combining premium coffee with an interactive, safe reptile and cat sanctuary experience.",
@@ -195,6 +216,7 @@ const MOCK_IDEAS = [
     id: 3,
     title: "Zero-Trust Cybersecurity Framework for SMBs",
     category: "IT & Software",
+    stage: "Ready to Scale",
     price: "$25,000",
     royaltyOption: "or $10k + 8% Royalty",
     shortDesc: "A turnkey IT service package designed to migrate small-to-medium businesses to military-grade zero-trust architectures in under 48 hours.",
@@ -206,6 +228,7 @@ const MOCK_IDEAS = [
     id: 4,
     title: "Telehealth Pediatric Triage System",
     category: "Healthcare & Biotech",
+    stage: "Architecture Phase",
     price: "$45,000",
     royaltyOption: "Upfront buyout only",
     shortDesc: "A fully compliant B2B platform connecting exhausted parents with on-demand pediatric nurses for after-hours symptom checking.",
@@ -216,7 +239,8 @@ const MOCK_IDEAS = [
   {
     id: 5,
     title: "CRISPR-based Agricultural Yield Optimizer",
-    category: "Biotech",
+    category: "Healthcare & Biotech",
+    stage: "Lab Tested",
     price: "$120,000",
     royaltyOption: "or $50k + 15% Royalty",
     shortDesc: "Research and theoretical application models for increasing drought resistance in Mediterranean olive trees using advanced gene editing.",
@@ -228,6 +252,7 @@ const MOCK_IDEAS = [
     id: 6,
     title: "National Food Truck Franchise Strategy",
     category: "Food & Beverage",
+    stage: "Validated Concept",
     price: "$35,000",
     royaltyOption: "or $8k + 5% Royalty",
     shortDesc: "Complete expansion blueprint for supermarket parking lots. Engineered for corporate retail giants looking to capture fast-food revenue.",
@@ -239,6 +264,7 @@ const MOCK_IDEAS = [
     id: 7,
     title: "Hyper-Local Sustainable Grocery Delivery",
     category: "E-commerce",
+    stage: "Working MVP",
     price: "$8,500",
     royaltyOption: "or $2k + 12% Royalty",
     shortDesc: "E-commerce logistics model that connects local organic farms directly to neighborhood hubs via electric cargo bikes.",
@@ -250,6 +276,7 @@ const MOCK_IDEAS = [
     id: 8,
     title: "B2B Subscription Management API",
     category: "SaaS",
+    stage: "Code Complete",
     price: "$60,000",
     royaltyOption: "Upfront buyout only",
     shortDesc: "A micro-SaaS blueprint that simplifies complex, multi-tiered enterprise billing. Perfect to build and flip to Stripe or Paddle.",
@@ -261,6 +288,7 @@ const MOCK_IDEAS = [
     id: 9,
     title: "Remote-First Workforce Transition Plan",
     category: "Corporate Strategy",
+    stage: "Revenue Generating",
     price: "$5,000",
     royaltyOption: "No royalty option",
     shortDesc: "A comprehensive consulting manual allowing HR agencies to charge premium fees to transition old-school companies to asynchronous remote work.",
@@ -272,6 +300,7 @@ const MOCK_IDEAS = [
     id: 10,
     title: "Modular Urban Vertical Farming",
     category: "Pet & Animal Services",
+    stage: "Hardware Prototype",
     price: "$18,000",
     royaltyOption: "or $5k + 8% Royalty",
     shortDesc: "A scalable hardware and logistics blueprint for cultivating organic, high-protein insect feed for the premium pet food market.",
@@ -295,7 +324,7 @@ export default function App() {
   const [ideas, setIdeas] = useState(MOCK_IDEAS);
   const [selectedIdea, setSelectedIdea] = useState(null);
   const [ndaSigned, setNdaSigned] = useState(false);
-  const [newIdea, setNewIdea] = useState({ title: "", category: "SaaS", price: "", shortDesc: "", assets: "" });
+  const [newIdea, setNewIdea] = useState({ title: "", category: "SaaS", price: "", shortDesc: "", assets: "", stage: "Concept" });
 
   const t = (key) => TRANSLATIONS[language][key] || key;
 
@@ -401,9 +430,34 @@ export default function App() {
               </div>
             </section>
 
-            <section id="marketplace" className="max-w-7xl mx-auto px-4 py-16">
-              <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
-                <h2 className="text-3xl font-black text-slate-900">{t('exploreIdeas')}</h2>
+            {/* NEW: Why Sell Section inspired by Ideenhilfe */}
+            <section className="max-w-7xl mx-auto px-4 py-16">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-black text-slate-900 mb-4">{t('whySellTitle')}</h2>
+                <p className="text-lg text-slate-500 font-medium max-w-2xl mx-auto">{t('whySellSub')}</p>
+              </div>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center hover:border-blue-300 transition-colors">
+                  <div className="bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"><Zap className="text-blue-600 h-8 w-8" /></div>
+                  <h3 className="text-xl font-bold mb-3">{t('reason1Title')}</h3>
+                  <p className="text-slate-500">{t('reason1Desc')}</p>
+                </div>
+                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center hover:border-blue-300 transition-colors">
+                  <div className="bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"><Briefcase className="text-blue-600 h-8 w-8" /></div>
+                  <h3 className="text-xl font-bold mb-3">{t('reason2Title')}</h3>
+                  <p className="text-slate-500">{t('reason2Desc')}</p>
+                </div>
+                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center hover:border-blue-300 transition-colors">
+                  <div className="bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"><Wrench className="text-blue-600 h-8 w-8" /></div>
+                  <h3 className="text-xl font-bold mb-3">{t('reason3Title')}</h3>
+                  <p className="text-slate-500">{t('reason3Desc')}</p>
+                </div>
+              </div>
+            </section>
+
+            <section id="marketplace" className="max-w-7xl mx-auto px-4 py-16 bg-slate-100 rounded-3xl border border-slate-200">
+              <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 px-4">
+                <h2 className="text-4xl font-black text-slate-900">{t('exploreIdeas')}</h2>
                 <div className="relative w-full md:w-72">
                   <select 
                     value={selectedCategory} 
@@ -423,12 +477,18 @@ export default function App() {
                   <div key={idea.id} className="bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-2xl transition-all group flex flex-col cursor-pointer transform hover:-translate-y-1" onClick={() => {setSelectedIdea(idea); setNdaSigned(false); setCurrentView("details"); window.scrollTo(0,0);}}>
                     <div className="h-2 bg-blue-600 group-hover:bg-cyan-500 transition-colors"></div>
                     <div className="p-8 flex-grow">
-                      <div className="flex justify-between items-start mb-6">
+                      <div className="flex justify-between items-start mb-4">
                         <span className="px-3 py-1 bg-slate-100 rounded-lg text-xs font-black uppercase text-slate-600">{idea.category}</span>
                         <span className="text-2xl font-black text-green-600">{idea.price}</span>
                       </div>
+                      {/* NEW: Development Stage Badge */}
+                      <div className="mb-4 inline-block px-2 py-1 border border-amber-200 bg-amber-50 text-amber-700 text-[10px] font-black uppercase rounded tracking-widest">
+                        {t('devStage')}: {idea.stage}
+                      </div>
+                      
                       <h3 className="text-2xl font-bold mb-4 group-hover:text-blue-600 transition-colors">{idea.title}</h3>
                       <p className="text-slate-500 leading-relaxed line-clamp-3 mb-6">{idea.shortDesc}</p>
+                      
                       <div className="bg-blue-50 p-3 rounded-xl flex items-center gap-2 border border-blue-100 mb-4">
                         <Lock className="h-4 w-4 text-blue-600" />
                         <p className="text-xs font-bold text-blue-800">{t('protectionNotice')}</p>
@@ -442,14 +502,16 @@ export default function App() {
           </>
         )}
 
-        {/* Pricing, Checkout, About... */}
+        {/* Pricing with New Agency Tier */}
         {currentView === "pricing" && (
-          <div className="max-w-5xl mx-auto py-16 px-4">
+          <div className="max-w-7xl mx-auto py-16 px-4">
             <div className="text-center mb-16">
               <h2 className="text-5xl font-black mb-6">{t('pricingTitle')}</h2>
               <p className="text-xl text-slate-500 font-medium">{t('pricingSub')}</p>
             </div>
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              
+              {/* Tier 1 */}
               <div className="bg-white p-10 rounded-3xl border-2 border-slate-200 flex flex-col hover:border-blue-300 transition-colors shadow-sm">
                 <h3 className="text-3xl font-black mb-4">{t('basicPlan')}</h3>
                 <div className="text-6xl font-black mb-8">$9<span className="text-lg text-slate-400 font-bold">{t('perMonth')}</span></div>
@@ -459,6 +521,8 @@ export default function App() {
                 </ul>
                 <button onClick={() => handleSubscribe('basic')} className="w-full py-4 rounded-xl font-black border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all text-lg">{t('subscribeBtn')}</button>
               </div>
+
+              {/* Tier 2 */}
               <div className="bg-slate-900 text-white p-10 rounded-3xl flex flex-col relative transform md:-translate-y-4 shadow-2xl">
                 <div className="absolute -top-4 right-8 bg-blue-500 px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-lg">Most Popular</div>
                 <h3 className="text-3xl font-black mb-4 flex items-center gap-2"><Crown className="text-yellow-400" /> {t('premiumPlan')}</h3>
@@ -470,6 +534,20 @@ export default function App() {
                 </ul>
                 <button onClick={() => handleSubscribe('premium')} className="w-full py-4 rounded-xl font-black bg-blue-600 hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/50 text-lg">{t('subscribeBtn')}</button>
               </div>
+
+              {/* NEW Tier 3: Agency */}
+              <div className="bg-white p-10 rounded-3xl border-2 border-slate-200 flex flex-col hover:border-blue-300 transition-colors shadow-sm bg-gradient-to-b from-white to-slate-50">
+                <h3 className="text-3xl font-black mb-4 flex items-center gap-2"><Globe className="text-blue-600"/> {t('agencyPlan')}</h3>
+                <div className="text-4xl font-black mb-2 mt-4 text-blue-600">{t('commission')}</div>
+                <p className="font-bold text-slate-400 mb-6">{t('agencySub')}</p>
+                <ul className="space-y-4 mb-10 flex-grow font-bold text-slate-500 text-lg">
+                  <li className="flex items-center gap-3"><CheckCircle2 className="text-blue-600" /> {t('pitchDeckCreation')}</li>
+                  <li className="flex items-center gap-3"><CheckCircle2 className="text-blue-600" /> {t('buyerOutreach')}</li>
+                  <li className="flex items-center gap-3"><CheckCircle2 className="text-blue-600" /> {t('negotiationSupport')}</li>
+                </ul>
+                <button onClick={() => handleSubscribe('agency')} className="w-full py-4 rounded-xl font-black border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition-all text-lg">{t('contactAgencyBtn')}</button>
+              </div>
+
             </div>
           </div>
         )}
@@ -480,8 +558,12 @@ export default function App() {
               <div className="bg-slate-50 p-10 md:w-1/3 border-b md:border-r md:border-b-0 border-slate-200">
                 <h3 className="font-black uppercase text-xs text-slate-400 tracking-widest mb-8">Summary</h3>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="font-bold text-lg">{pendingTier === 'premium' ? t('premiumPlan') : t('basicPlan')}</span>
-                  <span className="font-black text-2xl">{pendingTier === 'premium' ? '$49' : '$9'}</span>
+                  <span className="font-bold text-lg">
+                    {pendingTier === 'premium' ? t('premiumPlan') : pendingTier === 'agency' ? t('agencyPlan') : t('basicPlan')}
+                  </span>
+                  <span className="font-black text-2xl">
+                    {pendingTier === 'premium' ? '$49' : pendingTier === 'agency' ? '15%' : '$9'}
+                  </span>
                 </div>
                 <p className="text-xs text-slate-400 font-bold mb-8">Billed monthly. Cancel anytime.</p>
                 <div className="flex items-center gap-2 text-green-600 font-black text-xs bg-green-50 p-3 rounded-xl border border-green-100"><ShieldCheck size={16} /> {t('secureCheckout')}</div>
@@ -534,7 +616,10 @@ export default function App() {
             <div className="grid lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2 space-y-8">
                 <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm">
-                  <div className="mb-6"><span className="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg text-sm font-black uppercase border border-blue-100 tracking-wider">{selectedIdea.category}</span></div>
+                  <div className="mb-6 flex gap-3">
+                    <span className="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg text-sm font-black uppercase border border-blue-100 tracking-wider">{selectedIdea.category}</span>
+                    <span className="px-4 py-2 bg-amber-50 text-amber-700 rounded-lg text-sm font-black uppercase border border-amber-100 tracking-wider">{selectedIdea.stage}</span>
+                  </div>
                   <h1 className="text-5xl font-black mb-8 leading-tight text-slate-900">{selectedIdea.title}</h1>
                   <h3 className="text-xl font-bold mb-4 flex items-center gap-2"><Info className="text-blue-600" size={20}/> {t('publicOverview')}</h3>
                   <p className="text-lg text-slate-600 leading-relaxed mb-8">{selectedIdea.shortDesc}</p>
@@ -624,7 +709,7 @@ export default function App() {
                    <div>
                      <div className="flex justify-between items-end mb-3">
                         <label className="block text-xs font-black uppercase text-slate-500 tracking-widest">{t('publicTeaser')}</label>
-                        {userTier === 'premium' && (
+                        {(userTier === 'premium' || userTier === 'agency') && (
                           <button type="button" onClick={handleAIGenerate} className="text-xs font-black flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-xl border border-blue-100 hover:bg-blue-100 transition-all">
                             <Sparkles size={14} /> {t('aiGenerateBtn')}
                           </button>
@@ -650,7 +735,7 @@ export default function App() {
              <div className="bg-white rounded-3xl border border-slate-200 p-10 shadow-sm">
                 <h3 className="text-sm font-black uppercase text-slate-400 tracking-widest mb-8">{t('activeIdeas')}</h3>
                 {ideas.map(idea => (
-                  <div key={idea.id} className="flex flex-col sm:flex-row justify-between items-center p-6 border-b border-slate-100 hover:bg-slate-50 transition-colors cursor-pointer rounded-xl mb-2" onClick={() => {setSelectedIdea(idea); setCurrentView('details'); window.scrollTo(0,0);}}>
+                  <div key={idea.id} className="flex flex-col sm:flex-row justify-between items-center p-6 border-b border-slate-100 hover:bg-slate-50 transition-colors cursor-pointer rounded-xl mb-2" onClick={() => {setSelectedIdea(idea); setNdaSigned(false); setCurrentView('details'); window.scrollTo(0,0);}}>
                     <div className="flex items-center gap-6 mb-4 sm:mb-0">
                       <div className="bg-blue-100 p-4 rounded-2xl text-blue-600"><FileText /></div>
                       <div>
@@ -672,7 +757,7 @@ export default function App() {
         {currentView === "terms" && (
           <div className="max-w-4xl mx-auto py-16 px-4 min-h-[50vh]">
             <h1 className="text-5xl font-black mb-8 text-slate-900">{t('terms')}</h1>
-            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-slate-600 font-medium">
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-slate-600 font-medium whitespace-pre-wrap">
               <p>{t('pasteLegalHere')}</p>
             </div>
           </div>
@@ -681,7 +766,7 @@ export default function App() {
         {currentView === "privacy" && (
           <div className="max-w-4xl mx-auto py-16 px-4 min-h-[50vh]">
             <h1 className="text-5xl font-black mb-8 text-slate-900">{t('privacy')}</h1>
-            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-slate-600 font-medium">
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-slate-600 font-medium whitespace-pre-wrap">
               <p>{t('pasteLegalHere')}</p>
             </div>
           </div>
@@ -690,7 +775,7 @@ export default function App() {
         {currentView === "disclaimer" && (
           <div className="max-w-4xl mx-auto py-16 px-4 min-h-[50vh]">
             <h1 className="text-5xl font-black mb-8 text-slate-900">{t('disclaimer')}</h1>
-            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-slate-600 font-medium">
+            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-slate-600 font-medium whitespace-pre-wrap">
               <p>{t('disclaimerText')}</p>
               <br/>
               <p>{t('pasteLegalHere')}</p>
