@@ -9,7 +9,7 @@ import {
   MessageSquare, Send, Globe, Users, 
   Code, PieChart, Download, Plus, 
   LayoutDashboard, LogOut, Euro, Crown, Sparkles, CreditCard, ShieldCheck, Info,
-  Zap, Briefcase, Wrench
+  Zap, Briefcase, Wrench, Clock, PlayCircle
 } from 'lucide-react';
 
 const TRANSLATIONS = {
@@ -33,15 +33,32 @@ const TRANSLATIONS = {
     devStage: "Development Stage",
     protectionNotice: "Execution blueprints & financials protected by NDA.",
     noIdeas: "No blueprints found",
-    whySellTitle: "Why Sell Your Idea?",
-    whySellSub: "Not every inventor wants to be a CEO. Here is why creators use Ideaconomy to sell their concepts.",
+    
+    // NEW: Updated "Why Join" Section
+    whyJoinTitle: "Why Join Ideaconomy?",
+    whyJoinSub: "Whether you have a groundbreaking idea, a polished business plan, a working prototype, or a startup blueprint... if you don't want to become a CEO but know your concept is worth pursuing, you are in exactly the right place.",
     reason1Title: "Lack of Resources",
-    reason1Desc: "You have a highly profitable concept, but lack the time or capital required to build it yourself.",
+    reason1Desc: "You have a highly profitable concept, but lack the capital or network required to build it yourself.",
     reason2Title: "Skip the Startup Grind",
-    reason2Desc: "You love inventing, researching, and strategizing, but have no desire to manage a company or employees.",
+    reason2Desc: "You love inventing and strategizing, but have absolutely no desire to manage a company or hire employees.",
     reason3Title: "Technical Barriers",
     reason3Desc: "You see a clear market gap, but don't have the IT, coding, or manufacturing knowledge to execute it.",
-    howTitle: "How It Works",
+    reason4Title: "Lack of Time",
+    reason4Desc: "You have a busy life—like raising three children—and simply don't have the 80 hours a week required to launch a business.",
+    
+    // NEW: Step-by-Step Section
+    howToTitle: "How to Sell Your Blueprint",
+    step1Title: "1. Start Your Free Trial",
+    step1Desc: "Create your account, securely add your payment details, and enjoy a 7-day free trial to explore the platform.",
+    step2Title: "2. Draft Your Listing",
+    step2Desc: "Click 'Sell a Blueprint'. Add your title, a pitch, images, and upload your files. Our Pro AI can even help refine your strategy.",
+    step3Title: "3. Lock It Behind an NDA",
+    step3Desc: "Select exactly which confidential files stay hidden until a verified buyer digitally signs a Non-Disclosure Agreement.",
+    step4Title: "4. Set Price & Royalties",
+    step4Desc: "Ask for a one-time buyout fee, or choose a lower upfront price combined with ongoing profit-sharing to earn as they grow.",
+    step5Title: "5. Publish & Get Matched",
+    step5Desc: "Go live! If you upgrade to our Premium/Brokerage tier, our experts will actively hunt for corporate buyers for you.",
+
     backToMarket: "Back to Marketplace",
     publicOverview: "Blueprint Overview",
     proofValidation: "Proof of Concept / Validation",
@@ -116,15 +133,32 @@ const TRANSLATIONS = {
     devStage: "Entwicklungsstand",
     protectionNotice: "Baupläne & Finanzen sind durch ein NDA geschützt.",
     noIdeas: "Keine Blueprints gefunden",
-    whySellTitle: "Warum die eigene Idee verkaufen?",
-    whySellSub: "Nicht jeder Erfinder will CEO sein. Darum nutzen kluge Köpfe Ideaconomy:",
+    
+    // NEW: Updated "Why Join" Section
+    whyJoinTitle: "Warum Ideaconomy beitreten?",
+    whyJoinSub: "Egal ob du eine bahnbrechende Idee, einen Businessplan, einen Prototypen oder ein fertiges Konzept hast... wenn du kein CEO werden willst, aber weißt, dass deine Idee es wert ist, bist du hier genau richtig.",
     reason1Title: "Fehlende Ressourcen",
-    reason1Desc: "Du hast ein hochprofitables Konzept, aber weder die Zeit noch das Kapital, um es selbst aufzubauen.",
+    reason1Desc: "Du hast ein hochprofitables Konzept, aber weder das Kapital noch das Netzwerk, um es selbst aufzubauen.",
     reason2Title: "Keine Lust auf Gründung",
-    reason2Desc: "Du liebst es zu erfinden und zu forschen, hast aber keine Lust, ein Unternehmen oder Mitarbeiter zu führen.",
+    reason2Desc: "Du liebst es zu erfinden, hast aber absolut keine Lust, ein Unternehmen oder Mitarbeiter zu führen.",
     reason3Title: "Technische Hürden",
     reason3Desc: "Du siehst eine Marktlücke, aber dir fehlt das technische Know-how für IT, Programmierung oder Herstellung.",
-    howTitle: "Wie es funktioniert",
+    reason4Title: "Keine Zeit",
+    reason4Desc: "Du hast ein ausgefülltes Leben – zum Beispiel als Mutter von drei Kindern – und hast schlichtweg keine 80 Stunden pro Woche für ein Startup.",
+    
+    // NEW: Step-by-Step Section
+    howToTitle: "Schritt-für-Schritt zum Verkauf",
+    step1Title: "1. Kostenlose Testphase",
+    step1Desc: "Erstelle deinen Account, hinterlege sicher deine Zahlungsdaten und nutze die 7-tägige kostenlose Testphase.",
+    step2Title: "2. Blueprint anlegen",
+    step2Desc: "Klicke auf 'Verkaufen'. Füge Titel, Beschreibung und Bilder hinzu. Unsere KI hilft dir bei Bedarf bei der Strategie.",
+    step3Title: "3. Mit NDA schützen",
+    step3Desc: "Wähle aus, welche Dateien geheim bleiben, bis ein verifizierter Käufer eine Vertraulichkeitsvereinbarung (NDA) unterzeichnet hat.",
+    step4Title: "4. Preis & Royalties festlegen",
+    step4Desc: "Wähle einen festen Einmalbetrag oder kombiniere einen kleineren Vorab-Betrag mit einer laufenden Umsatzbeteiligung (Royalties).",
+    step5Title: "5. Veröffentlichen & Matchen",
+    step5Desc: "Geh online! Mit unserem Premium/Agentur-Paket suchen unsere Experten sogar aktiv nach passenden Käufern für dich.",
+
     backToMarket: "Zurück zum Marktplatz",
     publicOverview: "Blueprint Übersicht",
     proofValidation: "Validierung / Konzeptnachweis",
@@ -430,27 +464,69 @@ export default function App() {
               </div>
             </section>
 
-            {/* NEW: Why Sell Section inspired by Ideenhilfe */}
+            {/* UPDATED: Why Join Section */}
             <section className="max-w-7xl mx-auto px-4 py-16">
               <div className="text-center mb-12">
-                <h2 className="text-4xl font-black text-slate-900 mb-4">{t('whySellTitle')}</h2>
-                <p className="text-lg text-slate-500 font-medium max-w-2xl mx-auto">{t('whySellSub')}</p>
+                <h2 className="text-4xl font-black text-slate-900 mb-6">{t('whyJoinTitle')}</h2>
+                <p className="text-lg text-slate-500 font-medium max-w-3xl mx-auto leading-relaxed">{t('whyJoinSub')}</p>
               </div>
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center hover:border-blue-300 transition-colors">
-                  <div className="bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"><Zap className="text-blue-600 h-8 w-8" /></div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                  <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Zap className="text-blue-600 h-7 w-7" /></div>
                   <h3 className="text-xl font-bold mb-3">{t('reason1Title')}</h3>
-                  <p className="text-slate-500">{t('reason1Desc')}</p>
+                  <p className="text-slate-500 text-sm leading-relaxed">{t('reason1Desc')}</p>
                 </div>
-                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center hover:border-blue-300 transition-colors">
-                  <div className="bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"><Briefcase className="text-blue-600 h-8 w-8" /></div>
+                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                  <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Briefcase className="text-blue-600 h-7 w-7" /></div>
                   <h3 className="text-xl font-bold mb-3">{t('reason2Title')}</h3>
-                  <p className="text-slate-500">{t('reason2Desc')}</p>
+                  <p className="text-slate-500 text-sm leading-relaxed">{t('reason2Desc')}</p>
                 </div>
-                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-center hover:border-blue-300 transition-colors">
-                  <div className="bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"><Wrench className="text-blue-600 h-8 w-8" /></div>
+                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                  <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Wrench className="text-blue-600 h-7 w-7" /></div>
                   <h3 className="text-xl font-bold mb-3">{t('reason3Title')}</h3>
-                  <p className="text-slate-500">{t('reason3Desc')}</p>
+                  <p className="text-slate-500 text-sm leading-relaxed">{t('reason3Desc')}</p>
+                </div>
+                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                  <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Clock className="text-blue-600 h-7 w-7" /></div>
+                  <h3 className="text-xl font-bold mb-3">{t('reason4Title')}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">{t('reason4Desc')}</p>
+                </div>
+              </div>
+            </section>
+
+            {/* NEW: Step-by-Step Guide */}
+            <section className="max-w-7xl mx-auto px-4 py-16 mb-8">
+              <div className="bg-slate-900 rounded-3xl p-10 md:p-16 text-white relative overflow-hidden shadow-2xl">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-20 -mr-20 -mt-20"></div>
+                <h2 className="text-4xl font-black mb-12 text-center relative z-10">{t('howToTitle')}</h2>
+                
+                <div className="grid md:grid-cols-5 gap-6 relative z-10">
+                  <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
+                    <h3 className="text-lg font-bold mb-3 text-blue-400">{t('step1Title')}</h3>
+                    <p className="text-slate-300 text-sm">{t('step1Desc')}</p>
+                  </div>
+                  <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
+                    <h3 className="text-lg font-bold mb-3 text-blue-400">{t('step2Title')}</h3>
+                    <p className="text-slate-300 text-sm">{t('step2Desc')}</p>
+                  </div>
+                  <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
+                    <h3 className="text-lg font-bold mb-3 text-blue-400">{t('step3Title')}</h3>
+                    <p className="text-slate-300 text-sm">{t('step3Desc')}</p>
+                  </div>
+                  <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
+                    <h3 className="text-lg font-bold mb-3 text-blue-400">{t('step4Title')}</h3>
+                    <p className="text-slate-300 text-sm">{t('step4Desc')}</p>
+                  </div>
+                  <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
+                    <h3 className="text-lg font-bold mb-3 text-blue-400">{t('step5Title')}</h3>
+                    <p className="text-slate-300 text-sm">{t('step5Desc')}</p>
+                  </div>
+                </div>
+                
+                <div className="text-center mt-12 relative z-10">
+                  <button onClick={handleSellClick} className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-full font-black text-lg transition-all shadow-lg shadow-blue-900/50 inline-flex items-center gap-2">
+                    <PlayCircle className="w-6 h-6" /> {t('subscribeBtn')}
+                  </button>
                 </div>
               </div>
             </section>
@@ -481,7 +557,7 @@ export default function App() {
                         <span className="px-3 py-1 bg-slate-100 rounded-lg text-xs font-black uppercase text-slate-600">{idea.category}</span>
                         <span className="text-2xl font-black text-green-600">{idea.price}</span>
                       </div>
-                      {/* NEW: Development Stage Badge */}
+                      
                       <div className="mb-4 inline-block px-2 py-1 border border-amber-200 bg-amber-50 text-amber-700 text-[10px] font-black uppercase rounded tracking-widest">
                         {t('devStage')}: {idea.stage}
                       </div>
