@@ -9,7 +9,7 @@ import {
   MessageSquare, Send, Globe, Users, 
   Code, PieChart, Download, Plus, 
   LayoutDashboard, LogOut, Euro, Crown, Sparkles, CreditCard, ShieldCheck, Info,
-  Zap, Briefcase, Wrench, Clock, PlayCircle
+  Zap, Briefcase, Wrench, Clock, PlayCircle, Rocket, Target, BookOpen
 } from 'lucide-react';
 
 const TRANSLATIONS = {
@@ -22,10 +22,14 @@ const TRANSLATIONS = {
     navLogIn: "Log In",
     navSell: "Sell a Blueprint",
     aboutNav: "About Us",
+    
+    // UPDATED: Hero section based on your screenshot notes
     heroTitle: <>The Global <span className="text-blue-600">Ideaconomy</span> for Business Blueprints</>,
-    heroSub: "The premier exchange for validated business models, market research, and expansion strategies. Connect with brilliant creators and industry experts.",
+    heroSub: "We are a new marketplace for ideas, business plans, blueprints, prototypes, and startups. Connecting creators with entrepreneurs, venture capital, big companies, founders, and expanding strategies for any company.",
+    
     searchPlaceholder: "Search blueprints, niches, or keywords...",
     searchBtn: "Search",
+    skipToListingsBtn: "Browse All Listings ↓",
     exploreIdeas: "Browse Niches",
     catSearch: "Find a niche...",
     askingPrice: "Asking Price",
@@ -34,9 +38,12 @@ const TRANSLATIONS = {
     protectionNotice: "Execution blueprints & financials protected by NDA.",
     noIdeas: "No blueprints found",
     
-    // NEW: Updated "Why Join" Section
     whyJoinTitle: "Why Join Ideaconomy?",
-    whyJoinSub: "Whether you have a groundbreaking idea, a polished business plan, a working prototype, or a startup blueprint... if you don't want to become a CEO but know your concept is worth pursuing, you are in exactly the right place.",
+    whyJoinSub: "A dual-sided ecosystem built for the brilliant minds who create, and the ambitious leaders who execute.",
+    tabSellers: "For Creators & Sellers",
+    tabBuyers: "For Buyers & Investors",
+    
+    // Seller Reasons
     reason1Title: "Lack of Resources",
     reason1Desc: "You have a highly profitable concept, but lack the capital or network required to build it yourself.",
     reason2Title: "Skip the Startup Grind",
@@ -45,8 +52,19 @@ const TRANSLATIONS = {
     reason3Desc: "You see a clear market gap, but don't have the IT, coding, or manufacturing knowledge to execute it.",
     reason4Title: "Lack of Time",
     reason4Desc: "You have a busy life—like raising three children—and simply don't have the 80 hours a week required to launch a business.",
+
+    // Buyer Reasons
+    buyerReason1Title: "Save Years on R&D",
+    buyerReason1Desc: "Skip the trial-and-error phase. Purchase validated concepts and prototypes to instantly accelerate your go-to-market timeline.",
+    buyerReason2Title: "Instant Market Expansion",
+    buyerReason2Desc: "Looking to expand your current company? Find bolt-on strategies, SaaS tools, and models perfectly tailored to your industry.",
+    buyerReason3Title: "Secure IP Vault",
+    buyerReason3Desc: "All confidential financials and technical blueprints are strictly protected by digital NDAs, ensuring exclusive transfer of knowledge.",
+    buyerReason4Title: "Find Your Next Venture",
+    buyerReason4Desc: "If you have capital and execution skills but are searching for that one 'million-dollar idea', your next venture is waiting right here.",
+
+    readHowItWorks: "Want to know the exact steps? Read How it Works →",
     
-    // NEW: Step-by-Step Section
     howToTitle: "How to Sell Your Blueprint",
     step1Title: "1. Start Your Free Trial",
     step1Desc: "Create your account, securely add your payment details, and enjoy a 7-day free trial to explore the platform.",
@@ -122,10 +140,13 @@ const TRANSLATIONS = {
     navLogIn: "Einloggen",
     navSell: "Blueprint verkaufen",
     aboutNav: "Über uns",
+    
     heroTitle: <>Die globale <span className="text-blue-600">Ideaconomy</span> für Business-Baupläne</>,
-    heroSub: "Der führende Marktplatz für validierte Geschäftsmodelle und Expansionsstrategien. Verbinden Sie sich mit brillanten Köpfen und Experten.",
+    heroSub: "Wir sind ein neuer Marktplatz für Ideen, Businesspläne, Blueprints, Prototypen und Startups. Wir verbinden Gründer mit Unternehmern, Venture Capital, Großunternehmen und bieten Expansionsstrategien für jede Art von Unternehmen.",
+    
     searchPlaceholder: "Nach Blueprints, Nischen oder Keywords suchen...",
     searchBtn: "Suchen",
+    skipToListingsBtn: "Alle Einträge ansehen ↓",
     exploreIdeas: "Nischen durchsuchen",
     catSearch: "Nische finden...",
     askingPrice: "Kaufpreis",
@@ -134,9 +155,11 @@ const TRANSLATIONS = {
     protectionNotice: "Baupläne & Finanzen sind durch ein NDA geschützt.",
     noIdeas: "Keine Blueprints gefunden",
     
-    // NEW: Updated "Why Join" Section
     whyJoinTitle: "Warum Ideaconomy beitreten?",
-    whyJoinSub: "Egal ob du eine bahnbrechende Idee, einen Businessplan, einen Prototypen oder ein fertiges Konzept hast... wenn du kein CEO werden willst, aber weißt, dass deine Idee es wert ist, bist du hier genau richtig.",
+    whyJoinSub: "Ein zweiseitiges Ökosystem – gebaut für die brillanten Köpfe, die erfinden, und die ambitionierten Führer, die umsetzen.",
+    tabSellers: "Für Verkäufer & Erfinder",
+    tabBuyers: "Für Käufer & Investoren",
+    
     reason1Title: "Fehlende Ressourcen",
     reason1Desc: "Du hast ein hochprofitables Konzept, aber weder das Kapital noch das Netzwerk, um es selbst aufzubauen.",
     reason2Title: "Keine Lust auf Gründung",
@@ -146,7 +169,17 @@ const TRANSLATIONS = {
     reason4Title: "Keine Zeit",
     reason4Desc: "Du hast ein ausgefülltes Leben – zum Beispiel als Mutter von drei Kindern – und hast schlichtweg keine 80 Stunden pro Woche für ein Startup.",
     
-    // NEW: Step-by-Step Section
+    buyerReason1Title: "Spare Jahre an F&E",
+    buyerReason1Desc: "Überspringe die Trial-and-Error-Phase. Kaufe validierte Konzepte und Prototypen, um deine Markteinführung sofort zu beschleunigen.",
+    buyerReason2Title: "Sofortige Markterweiterung",
+    buyerReason2Desc: "Möchtest du dein Unternehmen erweitern? Finde Bolt-On-Strategien, SaaS-Tools und Modelle, die perfekt auf deine Branche zugeschnitten sind.",
+    buyerReason3Title: "Sicherer IP-Tresor",
+    buyerReason3Desc: "Alle vertraulichen Finanzen und technischen Pläne sind durch digitale NDAs streng geschützt, was einen exklusiven Wissenstransfer garantiert.",
+    buyerReason4Title: "Finde dein nächstes Projekt",
+    buyerReason4Desc: "Wenn du Kapital und Umsetzungsstärke hast, aber nach der einen 'Millionen-Dollar-Idee' suchst, wartet dein nächstes Projekt genau hier.",
+
+    readHowItWorks: "Du möchtest die genauen Schritte wissen? Lies 'So funktioniert's' →",
+    
     howToTitle: "Schritt-für-Schritt zum Verkauf",
     step1Title: "1. Kostenlose Testphase",
     step1Desc: "Erstelle deinen Account, hinterlege sicher deine Zahlungsdaten und nutze die 7-tägige kostenlose Testphase.",
@@ -351,6 +384,9 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   
+  // NEW state for the toggle
+  const [whyJoinTab, setWhyJoinTab] = useState("sellers");
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [userTier, setUserTier] = useState('none');
@@ -413,6 +449,10 @@ export default function App() {
 
           <div className="hidden lg:flex items-center space-x-6">
             <button onClick={() => {setCurrentView('about'); window.scrollTo(0,0);}} className="text-slate-600 hover:text-blue-600 font-bold transition-colors">{t('aboutNav')}</button>
+            
+            {/* Added How It Works to Nav */}
+            <button onClick={() => {setCurrentView('howItWorks'); window.scrollTo(0,0);}} className="text-slate-600 hover:text-blue-600 font-bold transition-colors">{t('navHowItWorks')}</button>
+
             <div className="flex bg-slate-100 p-1 rounded-lg">
               <button onClick={() => setLanguage('EN')} className={`px-2 py-1 text-xs font-bold rounded ${language === 'EN' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-500'}`}>EN</button>
               <button onClick={() => setLanguage('DE')} className={`px-2 py-1 text-xs font-bold rounded ${language === 'DE' ? 'bg-white shadow-sm text-blue-600' : 'text-slate-500'}`}>DE</button>
@@ -445,92 +485,114 @@ export default function App() {
             <section className="py-20 px-4 text-center max-w-5xl mx-auto bg-white rounded-3xl mt-8 border border-slate-100 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1.5 bg-blue-600"></div>
               <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-8 leading-tight">{t('heroTitle')}</h1>
-              <p className="text-xl text-slate-500 max-w-3xl mx-auto mb-12 font-medium">{t('heroSub')}</p>
+              <p className="text-xl text-slate-500 max-w-3xl mx-auto mb-12 font-medium leading-relaxed">{t('heroSub')}</p>
               
-              <div className="flex flex-col sm:flex-row max-w-2xl mx-auto bg-slate-50 rounded-full shadow-inner border border-slate-200 overflow-hidden focus-within:ring-2 focus-within:ring-blue-500 mb-10">
-                <div className="flex items-center pl-6 py-4 flex-grow">
-                  <Search className="h-6 w-6 text-slate-400 mr-3" />
-                  <input 
-                    type="text" 
-                    placeholder={t('searchPlaceholder')}
-                    className="w-full outline-none text-slate-700 text-lg bg-transparent"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
+              <div className="flex flex-col sm:flex-row max-w-3xl mx-auto gap-4 items-center mb-10">
+                <div className="flex bg-slate-50 rounded-full shadow-inner border border-slate-200 overflow-hidden focus-within:ring-2 focus-within:ring-blue-500 flex-grow w-full">
+                  <div className="flex items-center pl-6 py-4 flex-grow">
+                    <Search className="h-6 w-6 text-slate-400 mr-3" />
+                    <input 
+                      type="text" 
+                      placeholder={t('searchPlaceholder')}
+                      className="w-full outline-none text-slate-700 text-lg bg-transparent"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                  </div>
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 font-black transition-colors">
+                    {t('searchBtn')}
+                  </button>
                 </div>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 font-black transition-colors">
-                  {t('searchBtn')}
-                </button>
+                
+                {/* NEW: Anchor link to jump directly to listings */}
+                <a href="#marketplace" className="whitespace-nowrap px-6 py-4 bg-slate-100 hover:bg-slate-200 text-slate-600 font-black rounded-full transition-colors border border-slate-200">
+                  {t('skipToListingsBtn')}
+                </a>
               </div>
             </section>
 
-            {/* UPDATED: Why Join Section */}
-            <section className="max-w-7xl mx-auto px-4 py-16">
-              <div className="text-center mb-12">
+            {/* UPDATED: Divided Why Join Section */}
+            <section className="max-w-7xl mx-auto px-4 py-16 mb-4">
+              <div className="text-center mb-10">
                 <h2 className="text-4xl font-black text-slate-900 mb-6">{t('whyJoinTitle')}</h2>
-                <p className="text-lg text-slate-500 font-medium max-w-3xl mx-auto leading-relaxed">{t('whyJoinSub')}</p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
-                  <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Zap className="text-blue-600 h-7 w-7" /></div>
-                  <h3 className="text-xl font-bold mb-3">{t('reason1Title')}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{t('reason1Desc')}</p>
-                </div>
-                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
-                  <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Briefcase className="text-blue-600 h-7 w-7" /></div>
-                  <h3 className="text-xl font-bold mb-3">{t('reason2Title')}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{t('reason2Desc')}</p>
-                </div>
-                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
-                  <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Wrench className="text-blue-600 h-7 w-7" /></div>
-                  <h3 className="text-xl font-bold mb-3">{t('reason3Title')}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{t('reason3Desc')}</p>
-                </div>
-                <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
-                  <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Clock className="text-blue-600 h-7 w-7" /></div>
-                  <h3 className="text-xl font-bold mb-3">{t('reason4Title')}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">{t('reason4Desc')}</p>
-                </div>
-              </div>
-            </section>
-
-            {/* NEW: Step-by-Step Guide */}
-            <section className="max-w-7xl mx-auto px-4 py-16 mb-8">
-              <div className="bg-slate-900 rounded-3xl p-10 md:p-16 text-white relative overflow-hidden shadow-2xl">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-20 -mr-20 -mt-20"></div>
-                <h2 className="text-4xl font-black mb-12 text-center relative z-10">{t('howToTitle')}</h2>
+                <p className="text-lg text-slate-500 font-medium max-w-3xl mx-auto leading-relaxed mb-10">{t('whyJoinSub')}</p>
                 
-                <div className="grid md:grid-cols-5 gap-6 relative z-10">
-                  <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
-                    <h3 className="text-lg font-bold mb-3 text-blue-400">{t('step1Title')}</h3>
-                    <p className="text-slate-300 text-sm">{t('step1Desc')}</p>
-                  </div>
-                  <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
-                    <h3 className="text-lg font-bold mb-3 text-blue-400">{t('step2Title')}</h3>
-                    <p className="text-slate-300 text-sm">{t('step2Desc')}</p>
-                  </div>
-                  <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
-                    <h3 className="text-lg font-bold mb-3 text-blue-400">{t('step3Title')}</h3>
-                    <p className="text-slate-300 text-sm">{t('step3Desc')}</p>
-                  </div>
-                  <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
-                    <h3 className="text-lg font-bold mb-3 text-blue-400">{t('step4Title')}</h3>
-                    <p className="text-slate-300 text-sm">{t('step4Desc')}</p>
-                  </div>
-                  <div className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
-                    <h3 className="text-lg font-bold mb-3 text-blue-400">{t('step5Title')}</h3>
-                    <p className="text-slate-300 text-sm">{t('step5Desc')}</p>
-                  </div>
-                </div>
-                
-                <div className="text-center mt-12 relative z-10">
-                  <button onClick={handleSellClick} className="bg-blue-600 hover:bg-blue-500 text-white px-10 py-4 rounded-full font-black text-lg transition-all shadow-lg shadow-blue-900/50 inline-flex items-center gap-2">
-                    <PlayCircle className="w-6 h-6" /> {t('subscribeBtn')}
+                {/* Toggle Switch */}
+                <div className="inline-flex bg-slate-100 p-1.5 rounded-full border border-slate-200 mb-10">
+                  <button 
+                    onClick={() => setWhyJoinTab('sellers')}
+                    className={`px-8 py-3 rounded-full font-black text-sm transition-all ${whyJoinTab === 'sellers' ? 'bg-white shadow text-blue-600' : 'text-slate-500 hover:text-slate-800'}`}
+                  >
+                    {t('tabSellers')}
+                  </button>
+                  <button 
+                    onClick={() => setWhyJoinTab('buyers')}
+                    className={`px-8 py-3 rounded-full font-black text-sm transition-all ${whyJoinTab === 'buyers' ? 'bg-white shadow text-blue-600' : 'text-slate-500 hover:text-slate-800'}`}
+                  >
+                    {t('tabBuyers')}
                   </button>
                 </div>
               </div>
+
+              {whyJoinTab === 'sellers' && (
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-in fade-in zoom-in duration-300">
+                  <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                    <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Zap className="text-blue-600 h-7 w-7" /></div>
+                    <h3 className="text-xl font-bold mb-3">{t('reason1Title')}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{t('reason1Desc')}</p>
+                  </div>
+                  <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                    <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Briefcase className="text-blue-600 h-7 w-7" /></div>
+                    <h3 className="text-xl font-bold mb-3">{t('reason2Title')}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{t('reason2Desc')}</p>
+                  </div>
+                  <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                    <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Wrench className="text-blue-600 h-7 w-7" /></div>
+                    <h3 className="text-xl font-bold mb-3">{t('reason3Title')}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{t('reason3Desc')}</p>
+                  </div>
+                  <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-blue-300 transition-colors">
+                    <div className="bg-blue-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Clock className="text-blue-600 h-7 w-7" /></div>
+                    <h3 className="text-xl font-bold mb-3">{t('reason4Title')}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{t('reason4Desc')}</p>
+                  </div>
+                </div>
+              )}
+
+              {whyJoinTab === 'buyers' && (
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-in fade-in zoom-in duration-300">
+                  <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-emerald-300 transition-colors">
+                    <div className="bg-emerald-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Rocket className="text-emerald-600 h-7 w-7" /></div>
+                    <h3 className="text-xl font-bold mb-3">{t('buyerReason1Title')}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{t('buyerReason1Desc')}</p>
+                  </div>
+                  <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-emerald-300 transition-colors">
+                    <div className="bg-emerald-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Target className="text-emerald-600 h-7 w-7" /></div>
+                    <h3 className="text-xl font-bold mb-3">{t('buyerReason2Title')}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{t('buyerReason2Desc')}</p>
+                  </div>
+                  <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-emerald-300 transition-colors">
+                    <div className="bg-emerald-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Lock className="text-emerald-600 h-7 w-7" /></div>
+                    <h3 className="text-xl font-bold mb-3">{t('buyerReason3Title')}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{t('buyerReason3Desc')}</p>
+                  </div>
+                  <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-emerald-300 transition-colors">
+                    <div className="bg-emerald-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"><Search className="text-emerald-600 h-7 w-7" /></div>
+                    <h3 className="text-xl font-bold mb-3">{t('buyerReason4Title')}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed">{t('buyerReason4Desc')}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* NEW: Clean text link to the How To page */}
+              <div className="text-center mt-10">
+                 <button onClick={() => {setCurrentView('howItWorks'); window.scrollTo(0,0);}} className="text-blue-600 font-black hover:text-blue-800 transition-colors text-lg flex items-center justify-center mx-auto gap-2">
+                   <BookOpen className="w-5 h-5"/> {t('readHowItWorks')}
+                 </button>
+              </div>
             </section>
 
+            {/* The Marketplace section stays the same */}
             <section id="marketplace" className="max-w-7xl mx-auto px-4 py-16 bg-slate-100 rounded-3xl border border-slate-200">
               <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 px-4">
                 <h2 className="text-4xl font-black text-slate-900">{t('exploreIdeas')}</h2>
@@ -576,6 +638,50 @@ export default function App() {
               </div>
             </section>
           </>
+        )}
+
+        {/* NEW: Dedicated How It Works Page */}
+        {currentView === "howItWorks" && (
+          <div className="max-w-7xl mx-auto py-16 px-4">
+             <div className="bg-slate-900 rounded-3xl p-10 md:p-16 text-white relative overflow-hidden shadow-2xl">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-20 -mr-20 -mt-20"></div>
+                <h2 className="text-5xl font-black mb-16 text-center relative z-10">{t('howToTitle')}</h2>
+                
+                <div className="grid md:grid-cols-3 gap-8 relative z-10 mb-12">
+                  <div className="bg-slate-800/80 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
+                    <div className="bg-blue-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-6 text-blue-400 font-black text-xl">1</div>
+                    <h3 className="text-2xl font-bold mb-4 text-white">{t('step1Title')}</h3>
+                    <p className="text-slate-300 text-lg leading-relaxed">{t('step1Desc')}</p>
+                  </div>
+                  <div className="bg-slate-800/80 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
+                    <div className="bg-blue-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-6 text-blue-400 font-black text-xl">2</div>
+                    <h3 className="text-2xl font-bold mb-4 text-white">{t('step2Title')}</h3>
+                    <p className="text-slate-300 text-lg leading-relaxed">{t('step2Desc')}</p>
+                  </div>
+                  <div className="bg-slate-800/80 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
+                    <div className="bg-blue-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-6 text-blue-400 font-black text-xl">3</div>
+                    <h3 className="text-2xl font-bold mb-4 text-white">{t('step3Title')}</h3>
+                    <p className="text-slate-300 text-lg leading-relaxed">{t('step3Desc')}</p>
+                  </div>
+                  <div className="bg-slate-800/80 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors">
+                    <div className="bg-blue-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-6 text-blue-400 font-black text-xl">4</div>
+                    <h3 className="text-2xl font-bold mb-4 text-white">{t('step4Title')}</h3>
+                    <p className="text-slate-300 text-lg leading-relaxed">{t('step4Desc')}</p>
+                  </div>
+                  <div className="bg-slate-800/80 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition-colors md:col-span-2">
+                    <div className="bg-blue-500/20 w-12 h-12 rounded-full flex items-center justify-center mb-6 text-blue-400 font-black text-xl">5</div>
+                    <h3 className="text-2xl font-bold mb-4 text-white">{t('step5Title')}</h3>
+                    <p className="text-slate-300 text-lg leading-relaxed">{t('step5Desc')}</p>
+                  </div>
+                </div>
+                
+                <div className="text-center relative z-10">
+                  <button onClick={handleSellClick} className="bg-blue-600 hover:bg-blue-500 text-white px-12 py-5 rounded-full font-black text-xl transition-all shadow-lg shadow-blue-900/50 inline-flex items-center gap-2">
+                    <PlayCircle className="w-6 h-6" /> {t('subscribeBtn')}
+                  </button>
+                </div>
+              </div>
+          </div>
         )}
 
         {/* Pricing with New Agency Tier */}
